@@ -8,14 +8,14 @@ title = "Azure IoT POC Server"
 heading = "AzureIoT Hub backend"
 
 ##Un-Comment when running against the Cosmos DB Emulator
-client = MongoClient("mongodb://rpi:FFwCOdmAy55XI2FqKDQX0qoQUeAweYMegGofQnCcBseVVKMhIE2UbzyJMTMbVOYTncaRa5HffqQTlscm20GHdA==@rpi.documents.azure.com:10255/?ssl=true&replicaSet=globaldb") #host uri
-db = client.iot    #Select the database
-db.authenticate(name="rpi",password='FFwCOdmAy55XI2FqKDQX0qoQUeAweYMegGofQnCcBseVVKMhIE2UbzyJMTMbVOYTncaRa5HffqQTlscm20GHdA==')
+# client = MongoClient("mongodb://rpi:FFwCOdmAy55XI2FqKDQX0qoQUeAweYMegGofQnCcBseVVKMhIE2UbzyJMTMbVOYTncaRa5HffqQTlscm20GHdA==@rpi.documents.azure.com:10255/?ssl=true&replicaSet=globaldb") #host uri
+# db = client.iot    #Select the database
+# db.authenticate(name="rpi",password='FFwCOdmAy55XI2FqKDQX0qoQUeAweYMegGofQnCcBseVVKMhIE2UbzyJMTMbVOYTncaRa5HffqQTlscm20GHdA==')
 
 ## Comment out when running locally
-# client = MongoClient(os.getenv("mongodb://rpi:FFwCOdmAy55XI2FqKDQX0qoQUeAweYMegGofQnCcBseVVKMhIE2UbzyJMTMbVOYTncaRa5HffqQTlscm20GHdA==@rpi.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"))
-# db = client.iot    #Select the database
-# db.authenticate(name=os.getenv("rpi"),password=os.getenv("FFwCOdmAy55XI2FqKDQX0qoQUeAweYMegGofQnCcBseVVKMhIE2UbzyJMTMbVOYTncaRa5HffqQTlscm20GHdA=="))
+client = MongoClient(os.getenv("mongodb://rpi:FFwCOdmAy55XI2FqKDQX0qoQUeAweYMegGofQnCcBseVVKMhIE2UbzyJMTMbVOYTncaRa5HffqQTlscm20GHdA==@rpi.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"))
+db = client.iot    #Select the database
+db.authenticate(name=os.getenv("rpi"),password=os.getenv("FFwCOdmAy55XI2FqKDQX0qoQUeAweYMegGofQnCcBseVVKMhIE2UbzyJMTMbVOYTncaRa5HffqQTlscm20GHdA=="))
 msg = db.messages #Select the collection
 
 def redirect_url():
